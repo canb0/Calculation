@@ -3,7 +3,8 @@ package com.atkafasi.Bahis;
 public class BetCalculator {
 
 	static String emptyString = "";
-
+	public static int WIN = 3;
+	public static int LOOSE = 0;
 	private static BetCalculator instance = null;
 	private Match realMatch;
 	private Match userMatch;
@@ -28,11 +29,9 @@ public class BetCalculator {
 			this.userMatch.calculateScore();
 	}
 
-
 	public int findWinner(Match match) {
 
 		if (!match.getScore().equalsIgnoreCase(emptyString)) {
-
 			if (match.getFirstTeamScore() > match.getSecondTeamScore())
 				return 1;
 			else if (match.getFirstTeamScore() < match.getSecondTeamScore())
@@ -41,7 +40,6 @@ public class BetCalculator {
 				return 0;
 		} else
 			return -1;
-
 	}
 
 	public boolean matchScore(Match realMatch, Match userMatch) {
@@ -58,24 +56,30 @@ public class BetCalculator {
 			return -1;
 	}
 
-	public int calculateMatchState(Match realMatch, Match userMatch) {
+	public static int get3Point() {
+		return WIN;
+	}
 
+	public static int get0Point() {
+		return LOOSE;
+	}
+
+	public int calculateMatchPoints(Match realMatch, Match userMatch) {
 		int realMatchWinner = findWinner(realMatch);
 		int userMatchWinner = findWinner(userMatch);
 		if (realMatchWinner == userMatchWinner) {
-			// check if user guessed the score
-			if (matchScore(realMatch, userMatch)) {
-				return findGoalNumber(realMatch) + 3;
+			if (realMatch.getScore().contains("0-0")) {
+				return get3Point() + 1;
 			} else {
-				return 3;
+				if (matchScore(realMatch, userMatch)) {
+					return findGoalNumber(realMatch) + get3Point();
+				} else {
+					return get3Point();
+				}
 			}
-
 		} else {
-			System.out
-					.println("maç sonucunu bilemedin. Skor hesabı yapmıyorum.");
-			return 0;
+			System.out.println("maç sonucunu bilemedin.");
+			return get0Point();
 		}
-
 	}
-
 }

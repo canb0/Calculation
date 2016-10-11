@@ -28,15 +28,15 @@ public class Match {
 	}
 
 	public int getFirstTeamScore() {
-		return firstTeamScore;
+		return this.firstTeamScore;
 	}
 
 	public int getSecondTeamScore() {
-		return secondTeamScore;
+		return this.secondTeamScore;
 	}
 
 	public int getTotalGoal() {
-		return this.firstTeamScore + this.secondTeamScore;
+		return getFirstTeamScore() + getSecondTeamScore();
 	}
 
 }

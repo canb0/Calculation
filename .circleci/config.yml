@@ -42,7 +42,7 @@ jobs:
 
       - run:
         name: Save test results
-          command: |
+          command:
             mkdir -p ~/test-results/junit/
             find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
         - store_test_results:

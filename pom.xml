@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Bahis</name>
+	<name>Calculator</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -15,13 +15,20 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>6.8</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+        <!-- https://mvnrepository.com/artifact/com.tngtech.java/junit-dataprovider -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.java</groupId>
+            <artifactId>junit-dataprovider</artifactId>
+            <version>1.10.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 	
 	<build>
         <plugins>
@@ -29,9 +36,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.1</version>
-                <configuration>
-                    <useSystemClassLoader>false</useSystemClassLoader>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

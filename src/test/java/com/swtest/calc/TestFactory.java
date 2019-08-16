@@ -16,7 +16,7 @@ public class TestFactory {
 	@DataProvider
 	public static Object[][] guessScore() {
 		return new Object[][] { { "2-1", 1 }, { "2-2", 0 }, { "1-1", 0 },
-				{ "1-2", 2 }, { "0-0", 0 } };
+				{ "1-2", 2 }, { "0-0", 0 },{"0-1",0} };
 	}
 
 	@DataProvider

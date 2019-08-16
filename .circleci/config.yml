@@ -40,10 +40,5 @@ jobs:
       # run tests!
       - run: mvn test
 
-
-      - run:
-          name: Save test results
-          command: |
-            mkdir -p ~/test-results/junit/
-            find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
-          when: always
+      - store_artifacts:
+          path: /home/circleci/repo/target/surefire-reports

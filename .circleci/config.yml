@@ -40,5 +40,7 @@ jobs:
       # run tests!
       - run: mvn test
 
+      - store_test_results:
+          path: /home/circleci/repo/target/surefire-reports
       - store_artifacts:
           path: /home/circleci/repo/target/surefire-reports

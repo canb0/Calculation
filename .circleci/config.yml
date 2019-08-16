@@ -51,4 +51,4 @@ jobs:
       - store_artifacts:
           path: ~/test-results/junit
       - store_artifacts:
-          path:  target
+          path:  target/my-reports

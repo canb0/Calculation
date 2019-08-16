@@ -1,3 +1,5 @@
 /test-output/
 /target/
 .idea
+.settings
+*.iml
